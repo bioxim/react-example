@@ -28,7 +28,7 @@ const Home = () => {
                           Maria Ximena Camino
                           <div className="subtitle text-right">IT Agronomist</div>
                       </div>
-                      <Link to="/about" className="btn animated">About me</Link>
+                      <Link to="/react-example/about" className="btn animated">About me</Link>
                   </div>
               </aside>
           </article>

@@ -14,12 +14,12 @@ const Container = () => {
     <BrowserRouter basename='/react-example'>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/portfolio' element={<Portfolio />} />
-                <Route path='/blog' element={<Blog />} />
-                <Route path='/blog/:id/:slug' element={<SinglePost />} />
-                <Route path='/contact' element={<span></span>} />
-                <Route path='*' element={<Error404 />} />
+                <Route path='/react-example/about' element={<About />} />
+                <Route path='/react-example/portfolio' element={<Portfolio />} />
+                <Route path='/react-example/blog' element={<Blog />} />
+                <Route path='/react-example/blog/:id/:slug' element={<SinglePost />} />
+                <Route path='/react-example/contact' element={<span></span>} />
+                <Route path='/react-example/*' element={<Error404 />} />
             </Routes>
     </BrowserRouter>
   )

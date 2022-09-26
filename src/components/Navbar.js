@@ -14,14 +14,14 @@ function Navbar() {
     <>
       <NavContainer>
         <div className={`${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/"><h2>Xime <span>Camino</span></h2></a>          
+          <a onClick={handleClick} href="/react-example/"><h2>Xime <span>Camino</span></h2></a>          
         </div>        
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Home</a>
-          <a onClick={handleClick} href="/about">About</a>
-          <a onClick={handleClick} href="/portfolio">Portfolio</a>
-          <a onClick={handleClick} href="/blog">Blog</a>
-          <a onClick={handleClick} href="/contact">Contact</a>
+          <a onClick={handleClick} href="/react-example/about">About</a>
+          <a onClick={handleClick} href="/react-example/portfolio">Portfolio</a>
+          <a onClick={handleClick} href="/react-example/blog">Blog</a>
+          <a onClick={handleClick} href="/react-example/contact">Contact</a>
           <a onClick={handleClick} href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
         </div>
         <div className='burguer'>
