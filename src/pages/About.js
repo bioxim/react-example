@@ -1,91 +1,95 @@
 import React from 'react';
 import styled from 'styled-components';
+import Contact from '../components/Contact';
 import profile from '../components/img/mxc-my-photo.jpg'
+import Navbar from '../components/Navbar';
 
 
 const About = () => {
     return (
       <>
+        <Navbar />
         <Acerca>
-        <section className="about section container-about full-lg-screen">
-          <article className="text-lg-right">
-              <aside className="text-center text-lg-right">
-                  <h1>María Ximena Camino</h1>
-                  <h5>IT Agronomist</h5>
-              </aside>
-              <p>I am an agronomist graduated in 2009.  Throughout these years I specialized myself in international trading of raw materials such as honey, corn and sunflower and the statistic analysis in these product's Market.</p>
-              <p>At the same time, I have always being interested in programming, web development and data science, partly because the companies for whom I worked just then needed a main website, custom reports from big amount of information, traceability systems, among other requirements.</p>
-              <div className="section text-center text-lg-left card-container">
-                  <a className="btn btn__primary" href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
-                      My Resume
-                  </a>
-              </div>
-          </article>
-          <article className="section text-center card-container">
-              <div className="card card0">
-                <div className="border">
-                  <h2 className="card-text">Xime</h2>
-                </div>
-              </div>
-          </article>
-          <article>
-              <h2 className="text-center text-lg-left">My IT Skills</h2>
-                <div className="cloud-container">
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Excel</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#PowerBI</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#CSS</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#HTML</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Javascript</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#React</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Python</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Figma</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#MongoDB</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#MySQL</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Wordpress</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Cloud</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Minery</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Blockchain</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Webpack</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Node.js</span>
-                  </a>
-                  <a href="/tags/mvp/">
-                    <span className="tag tag-minimum-viable-product tag-lg">#Json</span>
-                  </a>
+          <section className="about section container-about full-lg-screen">
+            <article className="text-lg-right">
+                <aside className="text-center text-lg-right">
+                    <h1>María Ximena Camino</h1>
+                    <h5>IT Agronomist</h5>
+                </aside>
+                <p>I am an agronomist graduated in 2009.  Throughout these years I specialized myself in international trading of raw materials such as honey, corn and sunflower and the statistic analysis in these product's Market.</p>
+                <p>At the same time, I have always being interested in programming, web development and data science, partly because the companies for whom I worked just then needed a main website, custom reports from big amount of information, traceability systems, among other requirements.</p>
+                <div className="section text-center text-lg-left card-container">
+                    <a className="btn btn__primary" href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+                        My Resume
+                    </a>
                 </div>
             </article>
-        </section>
+            <article className="section text-center card-container">
+                <div className="card card0">
+                  <div className="border">
+                    <h2 className="card-text">Xime</h2>
+                  </div>
+                </div>
+            </article>
+            <article>
+                <h2 className="text-center text-lg-left">My IT Skills</h2>
+                  <div className="cloud-container">
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Excel</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#PowerBI</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#CSS</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#HTML</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Javascript</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#React</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Python</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Figma</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#MongoDB</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#MySQL</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Wordpress</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Cloud</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Minery</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Blockchain</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Webpack</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Node.js</span>
+                    </a>
+                    <a href="/tags/mvp/">
+                      <span className="tag tag-minimum-viable-product tag-lg">#Json</span>
+                    </a>
+                  </div>
+              </article>
+          </section>
         </Acerca>
+        <Contact />
       </>
     );
   };

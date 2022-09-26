@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Contact from '../components/Contact';
+import Navbar from '../components/Navbar';
 import PortfolioCard from './PortfolioCard';
 
 const initialDb = [
@@ -20,6 +22,7 @@ const Portfolio = () => {
 
      return (
       <>
+        <Navbar />
         <Portafolio>
           <article className="header">
               <h1>My <i>Github</i> Porfolio</h1>
@@ -55,6 +58,7 @@ const Portfolio = () => {
               <a href={`https://github.com/bioxim`} target="_blank" className="load-more" rel="noreferrer">All repositories</a>
           </article> 
         </Portafolio>
+        <Contact />
       </>
     );
   };

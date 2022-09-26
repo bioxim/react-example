@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import Navbar from '../components/Navbar'
 
 const Error404 = () => {
   return (
-    <Error>
-       <div>
+    <>
+      <Navbar />
+      <Error>
+        <div>
             <h1>Error 404</h1>
             <h4>Not Found.</h4>
         </div> 
-    </Error>
+      </Error>
+    </>
+    
     
   )
 }

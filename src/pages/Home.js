@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import HeroImage from '../components/img/hero-image-home.jpg'
+import Navbar from '../components/Navbar';
 
 const Home = () => {
 
     return (
       <>
+        <Navbar/>
         <Main>
           <article className="hero-image area">
               <aside className="hero-image-opacity ">

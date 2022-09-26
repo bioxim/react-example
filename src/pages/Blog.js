@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Contact from '../components/Contact';
+import Navbar from '../components/Navbar';
 import BlogCard from './BlogCard'
 
 const initialDb = [
@@ -45,6 +47,7 @@ const Blog = () => {
 
     return (
       <>
+        <Navbar />
         <Notes>
           <article className="header">
             <h1>Blog</h1>
@@ -80,6 +83,7 @@ const Blog = () => {
             <button className="load-more">Load more</button>
           </article> */}
         </Notes>
+        <Contact />
       </>
     );
   };

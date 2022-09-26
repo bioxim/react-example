@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { HashRouter, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BurgerButton from './BurgerButton'
 
@@ -14,25 +14,22 @@ function Navbar() {
   return (
     <>
       <NavContainer>
-        <HashRouter>
-          <>
-            <div>
-              <Link onClick={handleClick} to="/"><h2>Xime <span>Camino</span></h2></Link>          
-            </div>
-            <div className={`links ${clicked ? 'active' : ''}`}>
-                <Link onClick={handleClick} to="/">Home</Link>
-                <Link onClick={handleClick} to="/about">About</Link>
-                <Link onClick={handleClick} to="/portfolio">Portfolio</Link>
-                <Link onClick={handleClick} to="/blog">Blog</Link>
-                <Link onClick={handleClick} to="/contact">Contact</Link>
-                <a href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>          
-            </div>
-            <div className='burguer'>
-              <BurgerButton clicked={clicked} handleClick={handleClick} />
-            </div>
-            <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
-          </> 
-        </HashRouter>
+        <div className={`${clicked ? 'active' : ''}`}>
+          <Link onClick={handleClick} to="/"><h2>Xime <span>Camino</span></h2></Link>          
+        </div>        
+        <div className={`links ${clicked ? 'active' : ''}`}>
+            <Link onClick={handleClick} to="/">Home</Link>
+            <Link onClick={handleClick} to="/about">About</Link>
+            <Link onClick={handleClick} to="/portfolio">Portfolio</Link>
+            <Link onClick={handleClick} to="/blog">Blog</Link>
+            <Link onClick={handleClick} to="/contact">Contact</Link>
+            <a onClick={handleClick} href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          
+        </div>
+        <div className='burguer'>
+          <BurgerButton clicked={clicked} handleClick={handleClick} />
+        </div>
+        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
     </>
   )
