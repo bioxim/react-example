@@ -1,7 +1,7 @@
 import React from 'react'
-import {    BrowserRouter,
-            Routes,
-            Route } from 'react-router-dom'
+import {    Routes,
+            Route,
+            BrowserRouter} from 'react-router-dom'
 import About from '../pages/About'
 import Home from '../pages/Home'
 import Error404 from '../pages/Error404'
@@ -11,7 +11,7 @@ import SinglePost from '../pages/SinglePost'
 
 const Container = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/react-example'>
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
