@@ -17,7 +17,7 @@ function Navbar() {
           <a onClick={handleClick} href="/react-example/"><h2>Xime <span>Camino</span></h2></a>          
         </div>        
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/">Home</a>
+          <a onClick={handleClick} href="/react-example/">Home</a>
           <a onClick={handleClick} href="/react-example/about">About</a>
           <a onClick={handleClick} href="/react-example/portfolio">Portfolio</a>
           <a onClick={handleClick} href="/react-example/blog">Blog</a>
