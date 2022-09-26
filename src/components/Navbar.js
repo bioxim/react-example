@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
+import { HashRouter, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BurgerButton from './BurgerButton'
 
@@ -13,16 +14,19 @@ function Navbar() {
   return (
     <>
       <NavContainer>
-        <div className={`${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/react-example/"><h2>Xime <span>Camino</span></h2></a>          
-        </div>        
+        <HashRouter>
+            <div>
+              <Link to="/"><h2>Xime <span>Camino</span></h2></Link>          
+            </div>
+        </HashRouter>
+                
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/react-example/">Home</a>
-          <a onClick={handleClick} href="/react-example/about">About</a>
-          <a onClick={handleClick} href="/react-example/portfolio">Portfolio</a>
-          <a onClick={handleClick} href="/react-example/blog">Blog</a>
-          <a onClick={handleClick} href="/react-example/contact">Contact</a>
-          <a onClick={handleClick} href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
+            <a href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>          
         </div>
         <div className='burguer'>
           <BurgerButton clicked={clicked} handleClick={handleClick} />
@@ -55,7 +59,7 @@ const NavContainer = styled.nav`
   position: fixed;
   width: 100%;
   
-  a{
+  a,Link{
     color: white;
     text-decoration: none;
     margin-right: 1rem;
@@ -76,7 +80,7 @@ const NavContainer = styled.nav`
     text-align: center;
     transition: all 1s ease;
     z-index: 3;
-    a{
+    a,Link{
       color: white;
       font-size: 2rem;
       display: block;
@@ -84,7 +88,7 @@ const NavContainer = styled.nav`
     @media(min-width: 768px){
       position: initial;
       margin: 0;
-      a{
+      a,Link{
         font-size: 1rem;
         color: white;
         display: inline;
@@ -102,7 +106,7 @@ const NavContainer = styled.nav`
     left: 0;
     right: 0;
     text-align: center;
-    a{
+    a,Link{
       font-size: 2rem;
       margin-top: 1.3rem;
       color: white;

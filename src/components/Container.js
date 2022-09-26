@@ -1,7 +1,8 @@
 import React from 'react'
 import {    Routes,
             Route,
-            BrowserRouter} from 'react-router-dom'
+            BrowserRouter,
+            HashRouter} from 'react-router-dom'
 import About from '../pages/About'
 import Home from '../pages/Home'
 import Error404 from '../pages/Error404'
@@ -11,7 +12,7 @@ import SinglePost from '../pages/SinglePost'
 
 const Container = () => {
   return (
-    <BrowserRouter basename='/react-example'>
+    <HashRouter>
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
@@ -21,7 +22,7 @@ const Container = () => {
                 <Route path='/contact' element={<span></span>} />
                 <Route path='*' element={<Error404 />} />
             </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
