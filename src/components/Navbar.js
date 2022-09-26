@@ -15,23 +15,24 @@ function Navbar() {
     <>
       <NavContainer>
         <HashRouter>
+          <>
             <div>
-              <Link to="/"><h2>Xime <span>Camino</span></h2></Link>          
+              <Link onClick={handleClick} to="/"><h2>Xime <span>Camino</span></h2></Link>          
             </div>
+            <div className={`links ${clicked ? 'active' : ''}`}>
+                <Link onClick={handleClick} to="/">Home</Link>
+                <Link onClick={handleClick} to="/about">About</Link>
+                <Link onClick={handleClick} to="/portfolio">Portfolio</Link>
+                <Link onClick={handleClick} to="/blog">Blog</Link>
+                <Link onClick={handleClick} to="/contact">Contact</Link>
+                <a href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>          
+            </div>
+            <div className='burguer'>
+              <BurgerButton clicked={clicked} handleClick={handleClick} />
+            </div>
+            <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+          </> 
         </HashRouter>
-                
-        <div className={`links ${clicked ? 'active' : ''}`}>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/portfolio">Portfolio</a>
-            <a href="/blog">Blog</a>
-            <a href="/contact">Contact</a>
-            <a href="https://bioxim.github.io/resume_model/assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>          
-        </div>
-        <div className='burguer'>
-          <BurgerButton clicked={clicked} handleClick={handleClick} />
-        </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
     </>
   )
