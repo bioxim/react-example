@@ -7,18 +7,19 @@ import PortfolioCard from './PortfolioCard';
 const initialDb = [
   {
     "id": 1,
-    "title": "delectus aut autem",
+    "title": "Project Euler's solved problems",
     "tag": "Python",
-    "description": "unc mauris leo, vulputate et gravida eget, rhoncus consequat turpis. Integer ac nisl a tortor fringilla feugiat quis et purus. Aenean tempor ipsum in metus posuere malesuada vehicula sit amet ligula. Fusce nec diam non est semper bibendum vitae scelerisque quam. Suspendisse ut scelerisque sem. Nunc aliquet velit velit, eu malesuada felis finibus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "image": "url.jpg",
-    "date": "Dec 05, 2022"
+    "description": "The Project Euler's website contains almost 800 math problems to be solved using programming languages.  Every single one involves free time to concentrate enough, and they can be filtered by difficulty, solved by or id.  I am using Pyhton in order to practise for future data science personal researchs such as Panda or Numpy.  The first one-hundred or so problems are generally considered to be easier than the problems which follow. In the archives table you will be able to see how many people have solved each problem; as a general rule of thumb the more people that have solved it, the easier it is. To assist further there is a difficulty rating system which may also help you decide where to start.",
+    "image": "https://images.pexels.com/photos/3729557/pexels-photo-3729557.jpeg",
+    "date": "Oct 01, 2022",
+    "url": "eulers"
   }
 ];
 
 const Portfolio = () => {
   const [db] = useState(initialDb);
 
-  // console.log(db)
+  console.log(db)
 
      return (
       <>
@@ -41,7 +42,7 @@ const Portfolio = () => {
               </div>
           </article>
           <article className="section portfolio-big">
-          {db.length > 1 ? (
+          {db.length > 0 ? (
             db.map((el) => (
               <PortfolioCard
                 key={el.id}
