@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_resume=self.webpackChunkreact_resume||[]).push([[462],{462:function(e,s,a){e.exports=a.p+"static/media/prueba_dos.0495ff71ef7c7442a803.md"}}]);
