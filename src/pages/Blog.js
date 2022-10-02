@@ -7,34 +7,20 @@ import BlogCard from './BlogCard'
 const initialDb = [
   {
     "id": 1,
-    "title": "delectus aut autem",
-    "tag_main": "Python",
-    "description": "unc mauris leo, vulputate et gravida eget, rhoncus consequat turpis. Integer ac nisl a tortor fringilla feugiat quis et purus. Aenean tempor ipsum in metus posuere malesuada vehicula sit amet ligula. Fusce nec diam non est semper bibendum vitae scelerisque quam. Suspendisse ut scelerisque sem. Nunc aliquet velit velit, eu malesuada felis finibus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "image": "url.jpg",
-    "date": "Dec 05, 2022",
-    "slug": "delectus-aut-autem",
+    "title": "How to do dynamic blog posts in React without database Frameworks",
+    "tag_main": "Markdown",
+    "description": "Markdown is a lightweight markup language for creating formatted text using a plain-text editor.  Created in 2004 by John Gruber and Aaron Swartz, it is really easy to be implemented into your React, blog platform or Framework projects.  It is also supported for over a dozen programming languages.  In this, my first blog post we are going to learn how to dynamically load in markdown files into a React project.",
+    "image": "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
+    "date": "Oct 02, 2022",
+    "slug": "how-to-do-dynamic-blog-posts-in-react-without-database-frameworks",
     "tag_clouds": [
-      "Coding",
-      "Data Science",
-      "Programming",
-      "Cloud"
+      "Markdown",
+      "React",
+      "markdown-to-jsx",
+      "plugin",
+      "components"
     ],
-    "post_archive": "prueba.md"
-  },
-  {
-    "id": 2,
-    "title": "lorem aut autem",
-    "tag_main": "Javascript",
-    "description": "unc mauris leo, vulputate et gravida eget, rhoncus consequat turpis. Integer ac nisl a tortor fringilla feugiat quis et purus. Aenean tempor ipsum in metus posuere malesuada vehicula sit amet ligula. Fusce nec diam non est semper bibendum vitae scelerisque quam. Suspendisse ut scelerisque sem. Nunc aliquet velit velit, eu malesuada felis finibus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "image": "url.jpg",
-    "date": "Nov 05, 2022",
-    "slug": "lorem-aut-autem",
-    "tag_clouds": [
-      "Coding",
-      "Js",
-      "Programming"
-    ],
-    "post_archive": "prueba_dos.md"
+    "post_archive": "post01_markdown_react.md"
   }
 ];
 
@@ -66,7 +52,7 @@ const Blog = () => {
             </div>
           </article>
           <article className="section portfolio-big">
-              {db.length > 3 ? (
+              {db.length > 0 ? (
                 db.map((el) => (
                   <BlogCard
                     key={el.id}

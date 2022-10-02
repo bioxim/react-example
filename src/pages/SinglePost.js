@@ -1,40 +1,26 @@
 import React from 'react';
 import { Link, useParams} from 'react-router-dom';
 import styled from 'styled-components';
-import photo from '../components/img/post-image-main.jpg';
+import Navbar from '../components/Navbar';
 import SinglePostFile from './SinglePostFile';
 
 const initialDb = [
   {
     "id": 1,
-    "title": "delectus aut autem",
-    "tag_main": "Python",
-    "description": "unc mauris leo, vulputate et gravida eget, rhoncus consequat turpis. Integer ac nisl a tortor fringilla feugiat quis et purus. Aenean tempor ipsum in metus posuere malesuada vehicula sit amet ligula. Fusce nec diam non est semper bibendum vitae scelerisque quam. Suspendisse ut scelerisque sem. Nunc aliquet velit velit, eu malesuada felis finibus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "image": "post-image-main.jpg",
-    "date": "Dec 05, 2022",
-    "slug": "delectus-aut-autem",
+    "title": "How to do dynamic blog posts in React without database Frameworks",
+    "tag_main": "Markdown",
+    "description": "Markdown is a lightweight markup language for creating formatted text using a plain-text editor.  Created in 2004 by John Gruber and Aaron Swartz, it is really easy to be implemented into your React, blog platform or Framework projects.  It is also supported for over a dozen programming languages.  In this, my first blog post we are going to learn how to dynamically load in markdown files into a React project.",
+    "image": "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
+    "date": "Oct 02, 2022",
+    "slug": "how-to-do-dynamic-blog-posts-in-react-without-database-frameworks",
     "tag_clouds": [
-      "Coding",
-      "Data Science",
-      "Programming",
-      "Cloud"
+      "Markdown",
+      "React",
+      "markdown-to-jsx",
+      "plugin",
+      "components"
     ],
-    "post_archive": "prueba.md"
-  },
-  {
-    "id": 2,
-    "title": "lorem aut autem",
-    "tag_main": "Javascript",
-    "description": "unc mauris leo, vulputate et gravida eget, rhoncus consequat turpis. Integer ac nisl a tortor fringilla feugiat quis et purus. Aenean tempor ipsum in metus posuere malesuada vehicula sit amet ligula. Fusce nec diam non est semper bibendum vitae scelerisque quam. Suspendisse ut scelerisque sem. Nunc aliquet velit velit, eu malesuada felis finibus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    "image": "url.jpg",
-    "date": "Nov 05, 2022",
-    "slug": "lorem-aut-autem",
-    "tag_clouds": [
-      "Coding",
-      "Js",
-      "Programming"
-    ],
-    "post_archive": "prueba_dos.md"
+    "post_archive": "post01_markdown_react.md"
   }
 ];
 
@@ -47,71 +33,74 @@ const SinglePost = () => {
   let idParams = parseInt(id);
 
     return (
+      <>
+        <Navbar />
         <Post>
-              <>
-              {initialDb.map((el) => (
-                el.id === idParams ? (
                 <>
-                  <article className="margin-none">
-                    <div className="header">
-                      <aside className="container-single-note">
-                        <div>
-                            <div className="subtitle-single-note">
-                                Xime Camino
-                                <span className="set-dot"></span>
-                                {el.date}
-                            </div>
-                            <h1>{el.title}</h1>
-                        </div>
+                {initialDb.map((el) => (
+                  el.id === idParams ? (
+                  <>
+                    <article className="margin-none">
+                      <div className="header">
+                        <aside className="container-single-note">
+                          <div>
+                              <div className="subtitle-single-note">
+                                  Xime Camino
+                                  <span className="set-dot"></span>
+                                  {el.date}
+                              </div>
+                              <h1>{el.title}</h1>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
+                    <article>
+                      <div>
+                          <Link className="link-back" to='/blog'>Back to main</Link>
+                          <h4>{el.description}</h4>
+                          <SinglePostFile 
+                            key={el.id}
+                            el={el}
+                          />
+                      </div>
+                    </article>
+                    <article className="container">
+                      <hr/>
+                    </article>
+                    <article className="social-note-container padding-sides padding-sides-lg">
+                      <div>
+                          <span className="tag-title">Tags:</span>
+                          {el.tag_clouds.map((el) => (
+                            <a key={el.id} className="tag" href="/">{el}</a>
+                          ))}&nbsp;
+                          
+                      </div>
+                      <aside className="container">
+                          <hr/>
                       </aside>
-                    </div>
-                  </article>
-                  <article>
-                    <div>
-                        <Link className="link-back" to='/blog'>Back to main</Link>
-                        <h4>{el.description}</h4>
-                        <SinglePostFile 
-                          key={el.id}
-                          el={el}
-                        />
-                    </div>
-                  </article>
-                  <article className="container">
-                    <hr/>
-                  </article>
-                  <article className="social-note-container padding-sides padding-sides-lg">
-                    <div>
-                        <span className="tag-title">Tags:</span>
-                        {el.tag_clouds.map((el) => (
-                          <a key={el.id} className="tag" href="/">{el}</a>
-                        ))}&nbsp;
-                        
-                    </div>
-                    <aside className="container">
-                        <hr/>
-                    </aside>
-                    <div>
-                        <ul className="nav">
-                            <span className="tag-title">Share:</span>
-                            <li className="nav-item"><a className="nav-link" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="13" fill="none">
-                                        <path fill="currentColor" d="M5.15 2.158H6.3V.091C6.102.063 5.42 0 4.625 0 2.966 0 1.83 1.077 1.83 3.054v1.821H0v2.31h1.83V13h2.244V7.186H5.83l.28-2.311H4.073V3.283c0-.668.174-1.125 1.076-1.125Z"></path>
-                                    </svg></a></li>
-                            <li className="nav-item"><a className="nav-link" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" fill="none">
-                                        <path fill="currentColor" d="M14.324 3.849c.01.13.01.262.01.393 0 3.991-3.155 8.59-8.922 8.59a9.11 9.11 0 0 1-4.814-1.355c.252.028.495.038.757.038a6.434 6.434 0 0 0 3.892-1.29c-1.378-.028-2.533-.898-2.931-2.094.194.028.388.046.592.046.281 0 .563-.037.825-.103C2.296 7.794 1.22 6.58 1.22 5.111v-.037a3.25 3.25 0 0 0 1.417.383c-.844-.542-1.398-1.468-1.398-2.515 0-.56.156-1.075.427-1.524C3.21 3.251 5.53 4.448 8.13 4.578a3.288 3.288 0 0 1-.077-.692c0-1.664 1.398-3.02 3.135-3.02.903 0 1.718.365 2.291.954a6.32 6.32 0 0 0 1.99-.729 3.035 3.035 0 0 1-1.378 1.664 6.477 6.477 0 0 0 1.805-.467 6.61 6.61 0 0 1-1.572 1.56Z"></path>
-                                    </svg></a></li>
-                            <li className="nav-item"><a className="nav-link" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" fill="none">
-                                        <path fill="currentColor" d="M5.844 0C2.904 0 0 1.919 0 5.024 0 6.998 1.134 8.12 1.822 8.12c.283 0 .447-.774.447-.992 0-.261-.68-.817-.68-1.902 0-2.256 1.754-3.854 4.023-3.854 1.95 0 3.394 1.085 3.394 3.08 0 1.489-.61 4.283-2.586 4.283-.714 0-1.324-.505-1.324-1.229 0-1.06.756-2.087.756-3.18 0-1.858-2.69-1.521-2.69.723 0 .471.06.993.276 1.422-.396 1.666-1.204 4.149-1.204 5.865 0 .53.078 1.052.13 1.582.097.107.048.096.197.043 1.444-1.936 1.392-2.315 2.045-4.848.353.657 1.264 1.01 1.985 1.01C9.634 10.123 11 7.22 11 4.603 11 1.818 8.542 0 5.844 0Z"></path>
-                                    </svg></a></li>
-                        </ul>
-                    </div>
-                  </article>
-                </>
-                ) : (
-                  console.log("")
-                )
-              ))}
-          </>
-    </Post>
+                      <div>
+                          <ul className="nav">
+                              <span className="tag-title">Share:</span>
+                              <li className="nav-item"><a className="nav-link" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="13" fill="none">
+                                          <path fill="currentColor" d="M5.15 2.158H6.3V.091C6.102.063 5.42 0 4.625 0 2.966 0 1.83 1.077 1.83 3.054v1.821H0v2.31h1.83V13h2.244V7.186H5.83l.28-2.311H4.073V3.283c0-.668.174-1.125 1.076-1.125Z"></path>
+                                      </svg></a></li>
+                              <li className="nav-item"><a className="nav-link" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" fill="none">
+                                          <path fill="currentColor" d="M14.324 3.849c.01.13.01.262.01.393 0 3.991-3.155 8.59-8.922 8.59a9.11 9.11 0 0 1-4.814-1.355c.252.028.495.038.757.038a6.434 6.434 0 0 0 3.892-1.29c-1.378-.028-2.533-.898-2.931-2.094.194.028.388.046.592.046.281 0 .563-.037.825-.103C2.296 7.794 1.22 6.58 1.22 5.111v-.037a3.25 3.25 0 0 0 1.417.383c-.844-.542-1.398-1.468-1.398-2.515 0-.56.156-1.075.427-1.524C3.21 3.251 5.53 4.448 8.13 4.578a3.288 3.288 0 0 1-.077-.692c0-1.664 1.398-3.02 3.135-3.02.903 0 1.718.365 2.291.954a6.32 6.32 0 0 0 1.99-.729 3.035 3.035 0 0 1-1.378 1.664 6.477 6.477 0 0 0 1.805-.467 6.61 6.61 0 0 1-1.572 1.56Z"></path>
+                                      </svg></a></li>
+                              <li className="nav-item"><a className="nav-link" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" fill="none">
+                                          <path fill="currentColor" d="M5.844 0C2.904 0 0 1.919 0 5.024 0 6.998 1.134 8.12 1.822 8.12c.283 0 .447-.774.447-.992 0-.261-.68-.817-.68-1.902 0-2.256 1.754-3.854 4.023-3.854 1.95 0 3.394 1.085 3.394 3.08 0 1.489-.61 4.283-2.586 4.283-.714 0-1.324-.505-1.324-1.229 0-1.06.756-2.087.756-3.18 0-1.858-2.69-1.521-2.69.723 0 .471.06.993.276 1.422-.396 1.666-1.204 4.149-1.204 5.865 0 .53.078 1.052.13 1.582.097.107.048.096.197.043 1.444-1.936 1.392-2.315 2.045-4.848.353.657 1.264 1.01 1.985 1.01C9.634 10.123 11 7.22 11 4.603 11 1.818 8.542 0 5.844 0Z"></path>
+                                      </svg></a></li>
+                          </ul>
+                      </div>
+                    </article>
+                  </>
+                  ) : (
+                    console.log("")
+                  )
+                ))}
+            </>
+        </Post>
+      </>
   )};
   
   export default SinglePost;
@@ -210,7 +199,7 @@ const SinglePost = () => {
         -webkit-transform: translateZ(0); backface-visibility: hidden;
       scale(1.0, 1.0);
         transform: translateZ(0);
-      background:#1B2030 url(${photo}) 50% 0 no-repeat;
+      background:#1B2030 url(${initialDb[0].image}) 50% 0 no-repeat;
       background-size:cover;
       background-attachment:fixed;
       animation: grow 360s  linear 10ms infinite;

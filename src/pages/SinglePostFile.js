@@ -18,7 +18,7 @@ const SinglePostFile = ({ el }) => {
                     .then(res => setArchive(res))
             )
         .catch(err => console.log(err))
-    }, [])
+    }, [post_archive])
     
 
     
