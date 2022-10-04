@@ -21,6 +21,21 @@ const initialDb = [
       "components"
     ],
     "post_archive": "post01_markdown_react.md"
+  },
+  {
+    "id": 2,
+    "title": "Everything about Markdown",
+    "tag_main": "Markdown",
+    "description": "This is a simple guide and introduction about Markdown.  It is a easy way to add formatting to texts on the web and works by incorporating some characters into our content.  It is supported by over a a dozen programming languages including blog platforms and Framework projects through pluggins and adds.",
+    "image": "https://images.pexels.com/photos/414630/pexels-photo-414630.jpeg",
+    "date": "Oct 02, 2022",
+    "slug": "everything-about-markdown",
+    "tag_clouds": [
+      "Markdown",
+      "HTML",
+      "blogging"
+    ],
+    "post_archive": "post02_everything_about_markdown.md"
   }
 ];
 
@@ -31,14 +46,14 @@ const SinglePost = () => {
   // console.log(id, slug);
 
   let idParams = parseInt(id);
-
+console.log(initialDb) 
     return (
       <>
         <Navbar />
         <Post>
                 <>
                 {initialDb.map((el) => (
-                  el.id === idParams ? (
+                  el.id === idParams  ? (
                   <>
                     <article className="margin-none">
                       <div className="header">
