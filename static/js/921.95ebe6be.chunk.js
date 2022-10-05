@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_resume=self.webpackChunkreact_resume||[]).push([[921],{921:function(e,c,t){e.exports=t.p+"static/media/post02_everything_about_markdown.aea920f33830c81cc8cf.md"}}]);
