@@ -1,81 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams} from 'react-router-dom';
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 import styled from 'styled-components';
-import Navbar from '../components/Navbar';
 import SinglePostFile from './SinglePostFile';
+import SinglePostHeader from './SinglePostHeader';
 
-const initialDb = [
-  {
-    "id": 1,
-    "title": "How to do dynamic blog posts in React without database Frameworks",
-    "tag_main": "Markdown",
-    "description": "Markdown is a lightweight markup language for creating formatted text using a plain-text editor.  Created in 2004 by John Gruber and Aaron Swartz, it is really easy to be implemented into your React, blog platform or Framework projects.  It is also supported for over a dozen programming languages.  In this, my first blog post we are going to learn how to dynamically load in markdown files into a React project.",
-    "image": "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
-    "date": "Oct 02, 2022",
-    "slug": "how-to-do-dynamic-blog-posts-in-react-without-database-frameworks",
-    "tag_clouds": [
-      "Markdown",
-      "React",
-      "markdown-to-jsx",
-      "plugin",
-      "components"
-    ],
-    "post_archive": "post01_markdown_react.md"
-  },
-  {
-    "id": 2,
-    "title": "Everything about Markdown",
-    "tag_main": "Markdown",
-    "description": "This is a simple guide and introduction about Markdown.  It is a easy way to add formatting to texts on the web and works by incorporating some characters into our content.  It is supported by over a a dozen programming languages including blog platforms and Framework projects through pluggins and adds.",
-    "image": "https://images.pexels.com/photos/414630/pexels-photo-414630.jpeg",
-    "date": "Oct 02, 2022",
-    "slug": "everything-about-markdown",
-    "tag_clouds": [
-      "Markdown",
-      "HTML",
-      "blogging"
-    ],
-    "post_archive": "post02_everything_about_markdown.md"
-  }
-];
 
 const SinglePost = () => {
 
   let params = useParams();
   let { id } = params;
-  // console.log(id, slug);
+  // console.log(typeof(id));
+  // console.log(typeof(parseInt(id)))
+  const [db, setDb] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  let idParams = parseInt(id);
-console.log(initialDb) 
-    return (
+  useEffect(() => {
+    setLoading(true);
+    import('../api/db.json')
+      .then(res => { 
+        setDb(res.posts)
+        if (!res.err) {
+          res.posts.map((el) => {
+            if(el.id === parseInt(id)) setDb(el)
+          })
+          setError(null);
+        } else {
+          setDb(null);
+          setError(res);
+        }
+        setLoading(false);
+      })
+      .catch(err => console.log(err))
+  }, [db])
+  
+
+  return (
       <>
-        <Navbar />
         <Post>
                 <>
-                {initialDb.map((el) => (
-                  el.id === idParams  ? (
+                { db != null  ? (
                   <>
-                    <article className="margin-none">
-                      <div className="header">
-                        <aside className="container-single-note">
-                          <div>
-                              <div className="subtitle-single-note">
-                                  Xime Camino
-                                  <span className="set-dot"></span>
-                                  {el.date}
-                              </div>
-                              <h1>{el.title}</h1>
-                          </div>
-                        </aside>
-                      </div>
-                    </article>
+                    <SinglePostHeader 
+                      key={db.id}
+                      el={db}
+                    />
                     <article>
                       <div>
                           <Link className="link-back" to='/blog'>Back to main</Link>
-                          <h4>{el.description}</h4>
+                          <h4>{db.description}</h4>
+                          {loading && <Loader />}
+                              {error && (
+                              <Message
+                                msg={`Error ${error.status}: ${error.statusText}`}
+                                bgColor="#dc3545"
+                              />
+                          )} 
                           <SinglePostFile 
-                            key={el.id}
-                            el={el}
+                            key={db.id}
+                            el={db}
                           />
                       </div>
                     </article>
@@ -85,7 +70,7 @@ console.log(initialDb)
                     <article className="social-note-container padding-sides padding-sides-lg">
                       <div>
                           <span className="tag-title">Tags:</span>
-                          {el.tag_clouds.map((el) => (
+                          {db.tag_clouds.map((el) => (
                             <a key={el.id} className="tag" href="/">{el}</a>
                           ))}&nbsp;
                           
@@ -112,18 +97,16 @@ console.log(initialDb)
                   ) : (
                     console.log("")
                   )
-                ))}
+                }
             </>
         </Post>
       </>
   )};
-  
+
   export default SinglePost;
 
   const Post = styled.div`
     
-    padding-top: 5rem;
-
     h1 {
       letter-spacing: .2rem;
       font-weight: 600;
@@ -176,57 +159,7 @@ console.log(initialDb)
       height: 100%;
       max-width: 80%;
     }
-
-    .header {
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      align-content: flex-start;
-      height:40vw;
-      min-height:300px;
-      max-height:450px;
-      min-width:300px;
-      color:#eee;
-    }
-
-    .header:after {
-      content:"";
-      width:100%;
-      height:100%;
-      position:absolute;
-      bottom:0;
-      left:0;
-      z-index:-1;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
-    }
-  
-    .header:before {
-      content:"";
-      width:100%;
-      height:200%;
-      position:absolute;
-      top:0;
-      left:0;
-        -webkit-backface-visibility: hidden;
-        -webkit-transform: translateZ(0); backface-visibility: hidden;
-      scale(1.0, 1.0);
-        transform: translateZ(0);
-      background:#1B2030 url(${initialDb[0].image}) 50% 0 no-repeat;
-      background-size:cover;
-      background-attachment:fixed;
-      animation: grow 360s  linear 10ms infinite;
-      transition:all 0.4s ease-in-out;
-      z-index:-2
-    }
-
-    @keyframes grow{
-      0% { transform: scale(1) translateY(0px)}
-      50% { transform: scale(1.2) translateY(-400px)}
-    }
-
+    
     .link-back {
       text-decoration: none;
       display: flow-root;

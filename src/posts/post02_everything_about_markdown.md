@@ -2,36 +2,6 @@
 
 This is a simple guide and introduction about _Markdown_.  It is a easy way to add formatting to texts on the web and works by incorporating some characters into our content.  It is supported by over a a dozen programming languages including blog platforms and Framework projects through pluggins and adds.
 
-## **Quick Pick**
-
-&nbsp;&nbsp;&nbsp; [Bold and Italic](#bold-and-italic)
-
-&nbsp;&nbsp;&nbsp; [Code](#code)
-
-&nbsp;&nbsp;&nbsp; [Collapsible](#collapsible)
-
-&nbsp;&nbsp;&nbsp; [Comments](#comments)
-
-&nbsp;&nbsp;&nbsp; [Divisions](#divisions)
-
-&nbsp;&nbsp;&nbsp; [Icons](#icons)
-
-&nbsp;&nbsp;&nbsp; [Images](#images)
-
-&nbsp;&nbsp;&nbsp; [Indentation](#indentation)
-
-&nbsp;&nbsp;&nbsp; [HTML](#html-code)
-
-&nbsp;&nbsp;&nbsp; [Links](#links)
-
-&nbsp;&nbsp;&nbsp; [Lists](#lists)
-
-&nbsp;&nbsp;&nbsp; [Quotations](#quotations)
-
-&nbsp;&nbsp;&nbsp; [Tables](#tables)
-
-&nbsp;&nbsp;&nbsp; [Titles and paragraphs](#titles-and-paragraphs)
-
 ### _Titles and paragraphs_
 
 For writing paragraphs you don't have to add anything:
@@ -191,9 +161,9 @@ Markdown has awesome icons that can express lots of things and feelings, making 
 
 ### _Images_
 
-![Sea Portrait](https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 "This is a heading")
+![Sea Portrait](https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg "This is a heading")
 
-    ![Sea Portrait](https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 "This is a heading")
+    ![Sea Portrait](https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg "This is a heading")
 ---
 
 ### _Quotations_
@@ -255,5 +225,3 @@ function sumar (a + b) {
         <label for="q">Search: </label>
         <input type="search" name="q" id="q">
     </form>
-
-

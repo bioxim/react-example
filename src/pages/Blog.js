@@ -1,50 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 import styled from 'styled-components'
-import Contact from '../components/Contact';
-import Navbar from '../components/Navbar';
+import Contact from '../components/Contact'
+import Navbar from '../components/Navbar'
 import BlogCard from './BlogCard'
-
-const initialDb = [
-  {
-    "id": 1,
-    "title": "How to do dynamic blog posts in React without database Frameworks",
-    "tag_main": "Markdown",
-    "description": "Markdown is a lightweight markup language for creating formatted text using a plain-text editor.  Created in 2004 by John Gruber and Aaron Swartz, it is really easy to be implemented into your React, blog platform or Framework projects.  It is also supported for over a dozen programming languages.  In this, my first blog post we are going to learn how to dynamically load in markdown files into a React project.",
-    "image": "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg",
-    "date": "Oct 02, 2022",
-    "slug": "how-to-do-dynamic-blog-posts-in-react-without-database-frameworks",
-    "tag_clouds": [
-      "Markdown",
-      "React",
-      "markdown-to-jsx",
-      "plugin",
-      "components"
-    ],
-    "post_archive": "post01_markdown_react.md"
-  },
-  {
-    "id": 2,
-    "title": "Everything about Markdown",
-    "tag_main": "Markdown",
-    "description": "This is a simple guide and introduction about Markdown.  It is a easy way to add formatting to texts on the web and works by incorporating some characters into our content.  It is supported by over a a dozen programming languages including blog platforms and Framework projects through pluggins and adds.",
-    "image": "https://images.pexels.com/photos/414630/pexels-photo-414630.jpeg",
-    "date": "Oct 02, 2022",
-    "slug": "everything-about-markdown",
-    "tag_clouds": [
-      "Markdown",
-      "HTML",
-      "blogging"
-    ],
-    "post_archive": "post02_everything_about_markdown.md"
-  }
-];
 
 
 const Blog = () => {
   
-  const [db] = useState(initialDb);
+  const [db, setDb] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // console.log(db)
+  useEffect(() => {
+    setLoading(true);
+    import('../api/db.json')
+      .then(res => { 
+        setDb(res.posts)
+        if (!res.err) {
+          setDb(res.posts);
+          setError(null);
+        } else {
+          setDb(null);
+          setError(res);
+        }
+        setLoading(false);
+      })
+      .catch(err => console.log(err))
+  }, [db])
+
+  // console.log(db);
 
     return (
       <>
@@ -67,18 +53,25 @@ const Blog = () => {
             </div>
           </article>
           <article className="section portfolio-big">
-              {db.length > 0 ? (
-                db.map((el) => (
-                  <BlogCard
-                    key={el.id}
-                    el={el}
-                  />
-                ))
-              ) : (
-                <section>
-                  <h5>No Data</h5>
-                </section>
-              )}
+          {loading && <Loader />}
+              {error && (
+              <Message
+                msg={`Error ${error.status}: ${error.statusText}`}
+                bgColor="#dc3545"
+              />
+          )}   
+          {db != null ? (
+              db.map((el) => (
+                <BlogCard
+                  key={el.id}
+                  el={el}
+                />
+              ))
+            ) : (
+            <section>
+              <h5>No Data</h5>
+            </section>
+          )}
           </article>
           {/* <article className="section text-center">
             <button className="load-more">Load more</button>

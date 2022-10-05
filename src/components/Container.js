@@ -19,7 +19,7 @@ const Container = () => {
                 <Route path='/about' element={<About />} />
                 <Route path='/portfolio' element={<Portfolio />} />
                 <Route path='/blog' element={<Blog />} />
-                <Route path='/blog/:id/:slug' element={<SinglePost />} />
+                <Route path='/blog/:id/:slug' element={<SinglePost/>} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='*' element={<Error404 />} />
             </Routes>

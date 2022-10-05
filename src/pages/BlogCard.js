@@ -13,14 +13,14 @@ const BlogCard = ({ el }) => {
           target="_self" 
           className="portfolio-main container"
           >
-            <div className="portfolio-main-container">
+            <div  className="portfolio-main-container">
                 <span>{tag_main}</span>
                 <img src={image} alt={title}/>
             </div>
             <div className="card-text">
               <h2 className="card-text-title">{title}</h2>
               <p>{description}</p>
-            </div>
+            </div>            
         </Link>
     </div>
     </>

@@ -5,8 +5,6 @@ const SinglePostFile = ({ el }) => {
 
     let { post_archive } = el
 
-    // console.log(post_archive)
-
     const [archive, setArchive] = useState('');
 
     useEffect(() => {
